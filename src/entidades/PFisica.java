@@ -4,6 +4,7 @@ public class PFisica extends Pessoa
 {
 	protected Double gastosSaude;
 	
+	
 	public PFisica() {
 		
 		super();
@@ -26,12 +27,21 @@ public class PFisica extends Pessoa
 	public Double calcImp() 
 	{
 		double imposto = 0;
-		
-		if(rendaAnual < 20000) 
+		if(gastosSaude > 0)
 		{
-			imposto = rendaAnual * 15/100;
+			if(rendaAnual < 20000) 
+			{
+				imposto = (rendaAnual * 15/100)-(gastosSaude * 50/100);
+			}else {
+				imposto = (rendaAnual * 25/100)-(gastosSaude * 50/100);
+			}
 		}else {
-			imposto = rendaAnual * 25/100;
+			if(rendaAnual < 20000) 
+			{
+				imposto = (rendaAnual * 15/100);
+			}else {
+				imposto = (rendaAnual * 25/100);
+			}
 		}
 		return imposto;
 	}
@@ -41,7 +51,9 @@ public class PFisica extends Pessoa
 	{
 		StringBuilder sb = new StringBuilder();
 		
-		sb.append(calcImp());
+		
+		sb.append("Nome :"+nome+" $"+calcImp());
+		
 
 		return sb.toString();
 	}

@@ -34,5 +34,7 @@ public abstract class Pessoa
 	
 	
 	public abstract Double calcImp();
+
+	
 	
 }

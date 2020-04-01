@@ -29,12 +29,22 @@ public class PJuridica extends Pessoa
 		if(numeroFuncionarios > 10) 
 		{
 			imposto = rendaAnual * 14/100;
-		}else {
+		}else 
+		{
 			imposto = rendaAnual * 16/100;
 		}
 		return imposto;
 	}
 	
+	@Override
+	public String toString() 
+	{
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("Nome :"+nome+" $"+calcImp());
+
+		return sb.toString();
+	}
 	 
 	
 }
